@@ -1,4 +1,4 @@
-import {setIsLoggedInAC} from '../features/Login/auth-reducer'
+import {setIsLoggedIn} from '../features/Auth/auth-reducer'
 import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit'
 import {authAPI} from "../api/todolists-api";
 
@@ -7,7 +7,7 @@ export const initializeAppTC = createAsyncThunk('app/initializeApp', async (para
     const res = await authAPI.me()
     try {
         if (res.data.resultCode === 0) {
-            dispatch(setIsLoggedInAC({value: true}))
+            dispatch(setIsLoggedIn({value: true}))
         } else {
 
         }
